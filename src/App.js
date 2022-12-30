@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Sidebar from "./Sidebar";
+import "./sb-admin-2.min.css";
+import Topbar from "./Topbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Portal from "./Portal";
+import Student from "./Student";
+import Usercreate from "./Usercreate";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Portal />}>
+          <Route path="/student" element={<Student />} />
+          <Route path="usercreate" element={<Usercreate />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
